@@ -1,0 +1,69 @@
++, -, /, *
+all work on nums only, strings can use +
+equality comparison can be done b/w different types too because our language is dynamically typed after all
+Lox doesn't have implicit conversions unlike JS
+! is the not operator as usual
+A function call has an argument list
+A function definition has a parameter list
+a function that doesn't return anything implicitly returns nil
+
+fun addPair(a,b) {
+  return a + b;
+}
+
+fun identity(a) {
+  return a;
+}
+print identity(addPair)(1,2);
+
+class breakfast{
+  cook() {
+    print "baha";
+  }
+
+  serve(who) {
+    print "Enjoy your breakfast" + who;
+  }
+}
+
+classes like functions, are first class in LOX
+classses are factory functions in LOX
+
+var breakfast = Breakfast();
+print breakfast;
+
+Lox lets you have instance variables on top of behavioural functions
+breakfast.meat = "sausage"
+breakfast.bread = "sourdough"
+
+assignment to a field creates that property within the class if it doesn't already exist yet
+
+fields or methods on the current object can be acessed using this keyword
+this.meat, this.bread
+
+constructors can be defined using the init() keyword
+class Breakfast {
+  init(meat, bread) {
+    this.meat = meat;
+    this.bread = bread;
+  }
+}
+
+Lox supports single class inheritance
+class Brunch < Breakfast {
+  drink() {
+    print "How about a Bloody Mary?";
+  }
+}
+
+every method defined in the superclass is also available to the subclasses
+every inherited object's constructor must also call its super class' constructor. Just like java, we use the super() keyword
+
+class Brunch < Breakfast {
+  init (meat, bread, drink) {
+    super.init(meat, bread);
+    this.drink = drink;
+  }
+}
+
+Lox is not a pure object-oriented language. In a true OOP language every object is an instance of a class, even primitve values like numbers and booleans.
